@@ -1,5 +1,5 @@
 <?php
-namespace TurboLabIt\ServiceEntityBundle\src;
+namespace TurboLabIt\ServiceEntityBundle;
 
 
 abstract class ServiceEntityCollection implements \Iterator, \Countable, \ArrayAccess

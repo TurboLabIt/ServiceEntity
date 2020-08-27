@@ -1,5 +1,5 @@
 <?php
-namespace TurboLabIt\ServiceEntityBundle\src;
+namespace TurboLabIt\ServiceEntityBundle;
 
 class ServiceEntityNotFoundException extends \RuntimeException
 {
