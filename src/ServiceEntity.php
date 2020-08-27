@@ -1,4 +1,4 @@
-namespace turbolabit\ServiceEntity
+namespace turbolabit\ServiceEntity;
 
 abstract class ServiceEntity
 {
