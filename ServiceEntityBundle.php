@@ -1,5 +1,5 @@
 <?php
-namespace App\TurboLabIt\ServiceEntityBundle;
+namespace TurboLabIt\ServiceEntityBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

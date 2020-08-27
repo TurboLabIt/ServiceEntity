@@ -1,5 +1,5 @@
 <?php
-namespace App\TurboLabIt\ServiceEntityBundle\DependencyInjection;
+namespace TurboLabIt\ServiceEntityBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 

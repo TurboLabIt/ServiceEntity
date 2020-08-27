@@ -6,7 +6,7 @@
  *  ...
  * }
  */
-namespace App\TurboLabIt\ServiceEntityBundle\src;
+namespace TurboLabIt\ServiceEntityBundle\src;
 
 
 trait Foreachable
