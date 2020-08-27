@@ -1,4 +1,10 @@
 {
-	"name":"turbolab.it/service-entity",
-	"description":"Service-Entity"
+  "name": "TurboLabIt/ServiceEntityBundle",
+  "description": "Service-Entity",
+  "type": "symfony-bundle",
+  "autoload": {
+    "psr-4": {
+      "TurboLabIt\\ServiceEntityBundle": "src/"
+    }
+  }
 }
