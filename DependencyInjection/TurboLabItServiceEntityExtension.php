@@ -15,8 +15,8 @@ class TurboLabItServiceEntityExtension extends Extension
         $loader->load('services.yaml');
 
 
-        $this->addAnnotatedClassesToCompile([
+        /*$this->addAnnotatedClassesToCompile([
             '**Bundle\\src\\',
-        ]);
+        ]);*/
     }
 }
