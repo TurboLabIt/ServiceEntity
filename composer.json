@@ -1,5 +1,5 @@
 {
-  "name": "turbolabit/serviceentitybundle",
+  "name": "TurboLabIt/ServiceEntityBundle",
   "description": "Service-Entity",
   "type": "symfony-bundle",
   "autoload": {
