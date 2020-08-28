@@ -14,16 +14,16 @@ abstract class ServiceEntity
 
     public function loadEntityById($id): self
     {
-        return $this->loadEntity('id', $id);
+        return $this->loadEntity(['id' => $id]);
     }
 
 
-    public function loadEntity($value, $field): self
+    public function loadEntity($arrFieldsValues): self
     {
         $getMethod = 'get' . ucfirst($field);
         if( empty($this->entity) ||  $this->entity->$getMethod() != $value ) {
 
-            $entity = $this->repository->findOneBy([$field => $value]);
+            $entity = $this->repository->findOneBy($arrFieldsValues);
             if (empty($entity) ) {
 
                 $this->throwNotFOundException();

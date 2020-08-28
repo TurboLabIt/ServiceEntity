@@ -13,7 +13,7 @@ abstract class ServiceEntityCollection implements \Iterator, \Countable, \ArrayA
     abstract public function createService($entity = null): ServiceEntity;
 
 
-    public function filterData(array $arrValues, string $field, $keepIfValues)
+    public function filterData(array $arrValues, string $field, $keepIfValues): array
     {
         $keepIfValues   = is_array($keepIfValues) ? $keepIfValues : [$keepIfValues];
         $arrFiltered    = [];
@@ -84,7 +84,7 @@ abstract class ServiceEntityCollection implements \Iterator, \Countable, \ArrayA
     }
 
 
-    public function loadByIds($arrIds)
+    public function loadByIds(array $arrIds): self
     {
         if( $this->count() || empty($arrIds)) {
 
