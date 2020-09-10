@@ -1,7 +1,6 @@
 <?php
 namespace TurboLabIt\ServiceEntityBundle;
 
-use Symfony\Component\Cache\Adapter\AdapterInterface;
 use TurboLabIt\ServiceEntityBundle\ServiceEntityNotFoundException;
 
 
