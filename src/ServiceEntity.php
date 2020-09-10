@@ -1,6 +1,7 @@
 <?php
 namespace TurboLabIt\ServiceEntityBundle;
 
+use Symfony\Component\Cache\Adapter\AdapterInterface;
 use TurboLabIt\ServiceEntityBundle\ServiceEntityNotFoundException;
 
 
@@ -12,13 +13,13 @@ abstract class ServiceEntity
     protected $isSelected = false;
 
 
-    public function loadEntityById($id): self
+    public function loadEntityById($id)
     {
         return $this->loadEntity(['id' => $id]);
     }
 
 
-    public function loadEntity($arrFieldsValues): self
+    public function loadEntity($arrFieldsValues)
     {
         $getMethod = 'get' . ucfirst($field);
         if( empty($this->entity) ||  $this->entity->$getMethod() != $value ) {
@@ -26,7 +27,7 @@ abstract class ServiceEntity
             $entity = $this->repository->findOneBy($arrFieldsValues);
             if (empty($entity) ) {
 
-                $this->throwNotFOundException();
+                $this->throwNotFoundException();
             }
 
             $this->setEntity($entity);
@@ -36,7 +37,7 @@ abstract class ServiceEntity
     }
 
 
-    public function setEntity($entity): self
+    public function setEntity($entity)
     {
         $this->entity = $entity;
         return $this;
@@ -49,7 +50,7 @@ abstract class ServiceEntity
     }
 
 
-    public function setData(array $arrData): self
+    public function setData(array $arrData)
     {
         $this->arrData = $arrData;
         return $this;
@@ -72,9 +73,22 @@ abstract class ServiceEntity
     }
 
 
-    protected function throwNotFOundException()
+    protected function throwNotFoundException()
     {
         throw new ServiceEntityNotFoundException();
+    }
+
+
+    public function setSelected()
+    {
+        $this->isSelected = true;
+        return $this;
+    }
+
+
+    public function isSelected(): bool
+    {
+        return $this->isSelected;
     }
 
 
@@ -109,18 +123,5 @@ abstract class ServiceEntity
         }
 
         return $this->entity->$name(...$arguments);
-    }
-
-
-    public function setSelected(): self
-    {
-        $this->isSelected = true;
-        return $this;
-    }
-
-
-    public function isSelected(): bool
-    {
-        return $this->isSelected;
     }
 }

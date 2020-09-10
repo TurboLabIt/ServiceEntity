@@ -10,7 +10,13 @@ abstract class ServiceEntityCollection implements \Iterator, \Countable, \ArrayA
     protected $repository;
 
 
-    abstract public function createService($entity = null): ServiceEntity;
+    abstract public function createService($entity = null);
+
+
+    public function loadAll()
+    {
+        return $this->loadByIds();
+    }
 
 
     public function filterData(array $arrValues, string $field, $keepIfValues): array
@@ -29,7 +35,7 @@ abstract class ServiceEntityCollection implements \Iterator, \Countable, \ArrayA
     }
 
 
-    public function loadFromData(array $arrValues, $idField = "id"): self
+    public function loadFromData(array $arrValues, $idField = "id")
     {
         $this->arrData = [];
 
@@ -51,7 +57,7 @@ abstract class ServiceEntityCollection implements \Iterator, \Countable, \ArrayA
     }
 
 
-    public function loadFromDataWithEntity(array $arrValues, $idField = "id"): self
+    public function loadFromDataWithEntity(array $arrValues, $idField = "id")
     {
         $this->arrData = [];
 
@@ -84,9 +90,9 @@ abstract class ServiceEntityCollection implements \Iterator, \Countable, \ArrayA
     }
 
 
-    public function loadByIds(array $arrIds): self
+    public function loadByIds(array $arrIds = [])
     {
-        if( $this->count() || empty($arrIds)) {
+        if( $this->count() ) {
 
             return $this;
         }
@@ -98,5 +104,17 @@ abstract class ServiceEntityCollection implements \Iterator, \Countable, \ArrayA
         }
 
         return $this;
+    }
+
+
+    public function getAsArray(): array
+    {
+        $arrData = [];
+        foreach($this->arrData as $id => $oneService) {
+
+            $arrData[$id] = $oneService->getAsArray();
+        }
+
+        return $arrDatasArray;
     }
 }
