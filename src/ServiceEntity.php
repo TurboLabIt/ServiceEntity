@@ -1,8 +1,6 @@
 <?php
 namespace TurboLabIt\ServiceEntityBundle;
 
-use TurboLabIt\ServiceEntityBundle\ServiceEntityNotFoundException;
-
 
 abstract class ServiceEntity
 {

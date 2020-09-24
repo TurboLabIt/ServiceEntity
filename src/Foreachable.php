@@ -104,6 +104,11 @@ trait Foreachable
     }
 
 
+    public function getAll()
+    {
+        return $this->arrData;
+    }
+
 
     /**
      * The ArrayAccess interface
