@@ -89,7 +89,7 @@ abstract class ServiceEntity
     }
 
 
-    public function getAsArray(): array
+    public function getAsArray(array $options = []): array
     {
         return array_merge($this->getData(), [
 
