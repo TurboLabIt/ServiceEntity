@@ -100,6 +100,13 @@ abstract class ServiceEntity
 
     public function __call(string $name, array $arguments)
     {
+        $fromData = $this->getData($name);
+        if( $fromData !== null ) {
+
+            return $fromData;
+        }
+        
+        
         if( stripos($name, 'set') === 0 ) {
 
             $this->entity->$name(...$arguments);
@@ -107,14 +114,7 @@ abstract class ServiceEntity
         }
 
 
-        $fromData = $this->getData($name);
-        if( $fromData !== null ) {
-
-            return $fromData;
-        }
-
-
-        if( stripos($name, 'get') !== 0 ) {
+        if( !method_exists($this->entity, $name) && stripos($name, 'get') !== 0 ) {
 
             $name = 'get' . ucfirst($name);
         }
